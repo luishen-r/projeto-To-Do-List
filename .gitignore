@@ -1,1 +1,5 @@
-.tarefas.txt
+tarefas.txt
+__pycache__/
+*.pyc
+venv/
+.env

@@ -1,3 +1,0 @@
-Estudar Calculo I;✔
-Ver Python POO;✘
-Academia;✘
