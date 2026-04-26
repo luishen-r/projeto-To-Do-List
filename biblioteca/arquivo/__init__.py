@@ -1,7 +1,7 @@
 def arquivoExiste(nome):
     try:
-        a = open(nome, 'rt')
-        a.close()
+        with open(nome, 'rt') as a:
+            a.close()
         return True
     except FileNotFoundError:
         return False
