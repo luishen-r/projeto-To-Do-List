@@ -69,7 +69,7 @@ def marcarConcluida(nome, tarefa):
 def removerTarefa(nome, tarefa):
     try:
         with open(nome, 'rt', encoding='utf-8') as arquivo:
-            linhas = arquivo.readline()
+            linhas = arquivo.readlines()
     except:
         print('ERRO ao ler arquivos')
         return
