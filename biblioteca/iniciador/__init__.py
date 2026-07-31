@@ -19,7 +19,7 @@ def leiaInt(msg):
 
 
 def restrição(msg):
-    if msg not in range(1, 6):
+    if msg not in range(1, 7):
         print('ERRO Digite uma opção dentre as disponíveis')
         return False
     else:

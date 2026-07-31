@@ -37,7 +37,7 @@ def novoCadastro(nome, tarefa='<Desconhecido>', status='✘'):
         print(f'ERRO ao escrever no arquivo! {e}')
 
 
-def marcarConcluida(nome, tarefa):
+def marcarConcluida(nome, tarefa: str):
     try:
         with open(nome, 'rt', encoding='utf-8') as a:
             linhas = a.readlines()
@@ -51,7 +51,7 @@ def marcarConcluida(nome, tarefa):
     for linha in linhas:
         dado = linha.strip().split(';')
         if len(dado) == 2:
-            if dado[0] == tarefa:
+            if dado[0].lower() == tarefa.lower():
                 dado[1] = '✔'
                 alterado = True
             novas_linhas.append(f'{dado[0]};{dado[1]}\n')
@@ -69,7 +69,7 @@ def marcarConcluida(nome, tarefa):
         print('Tarefa não encontrada.')
 
 
-def removerTarefa(nome, tarefa):
+def removerTarefa(nome, tarefa: str):
     try:
         with open(nome, 'rt', encoding='utf-8') as arquivo:
             linhas = arquivo.readlines()
@@ -82,7 +82,7 @@ def removerTarefa(nome, tarefa):
 
     for linha in linhas:
         dado = linha.strip().split(';')  
-        if dado[0] != tarefa:
+        if dado[0].lower() != tarefa.lower():
             novas_linhas.append(linha)
         else:
             removido = True
@@ -98,7 +98,7 @@ def removerTarefa(nome, tarefa):
         print('Tarefa não encontrada para remoção.')
     
 
-def editarTarefa(nome_arquivo, tarefa_antiga, nova_tarefa):
+def editarTarefa(nome_arquivo, tarefa_antiga: str, nova_tarefa: str):
     try:
         with open(nome_arquivo, 'rt', encoding='utf-8') as a:
             linhas = a.readlines()
@@ -113,7 +113,7 @@ def editarTarefa(nome_arquivo, tarefa_antiga, nova_tarefa):
         dado = linha.strip().split(';')
         if len(dado) == 2:
             # Se encontrou a tarefa que deseja alterar
-            if dado[0] == tarefa_antiga:
+            if dado[0].lower() == tarefa_antiga.lower():
                 novas_linhas.append(f'{nova_tarefa};{dado[1]}\n')  # Atualiza o nome, mantém o status
                 alterado = True
             else:
